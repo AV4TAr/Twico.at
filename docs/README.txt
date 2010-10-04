@@ -11,20 +11,4 @@ application to it's final production location.
 Setting Up Your VHOST
 =====================
 
-The following is a sample VHOST you might want to consider for your project.
-
-<VirtualHost *:80>
-   DocumentRoot "/home/ubuntu/quickstart/public"
-   ServerName quickstart.local
-
-   # This should be omitted in the production environment
-   SetEnv APPLICATION_ENV development
-    
-   <Directory "/home/ubuntu/quickstart/public">
-       Options Indexes MultiViews FollowSymLinks
-       AllowOverride All
-       Order allow,deny
-       Allow from all
-   </Directory>
-    
-</VirtualHost>
+You don't need to do this because you are running on PHP Fog! Yay!
