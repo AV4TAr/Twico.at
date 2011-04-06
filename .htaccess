@@ -1,10 +1,8 @@
-
 RewriteEngine On
 RewriteCond %{ENV:REDIRECT_STATUS} 200
-RewriteRule .* - [L]
-RewriteCond %{REQUEST_FILENAME} -s [OR]
 RewriteCond %{REQUEST_FILENAME} -l [OR]
 RewriteCond %{REQUEST_FILENAME} -d
-RewriteRule !\.(js|ico|gif|jpg|png|css|jpeg|html)$ public/index.php [NC,L]
-RewriteRule (.*) /public/$1 [L]
+RewriteRule ^.*$ - [NC,L]
+RewriteRule ^.*$ public/index.php [NC,L]
+
 php_value include_path ".:/usr/share/php:/usr/share/php/libzend-framework-php"
