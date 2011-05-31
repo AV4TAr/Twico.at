@@ -9,9 +9,15 @@ defined('APPLICATION_ENV')
 
 // Ensure library/ is on include_path
 set_include_path(implode(PATH_SEPARATOR, array(
+    realpath(APPLICATION_PATH . '/../library'),
     realpath(APPLICATION_PATH.'/models'),
+    '/usr/share/php/libzend-framework-php',
+    '/usr/share/php',
     get_include_path(),
 )));
+
+echo get_include_path();
+die();
 
 /** Zend_Application */
 require_once 'Zend/Application.php';
