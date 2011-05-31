@@ -9,10 +9,7 @@ defined('APPLICATION_ENV')
 
 // Ensure library/ is on include_path
 set_include_path(implode(PATH_SEPARATOR, array(
-    realpath(APPLICATION_PATH . '/../library'),
-    realpath(APPLICATION_PATH.'/models'),
-    '/usr/share/php/libzend-framework-php',
-    '/usr/share/php',
+    './application/models',
     get_include_path(),
 )));
 
