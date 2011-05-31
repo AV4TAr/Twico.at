@@ -7,8 +7,6 @@ defined('APPLICATION_PATH')
 defined('APPLICATION_ENV')
     || define('APPLICATION_ENV', (getenv('APPLICATION_ENV') ? getenv('APPLICATION_ENV') : 'production'));
 
-die(APPLICATION_PATH.'/models');
-// AVER
 // 
 // Ensure library/ is on include_path
 set_include_path(implode(PATH_SEPARATOR, array(
