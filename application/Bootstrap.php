@@ -1,5 +1,5 @@
 <?php
-
+require_once 'App/Singleton.php';
 class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
 {
 
