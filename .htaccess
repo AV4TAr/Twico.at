@@ -1,8 +1,0 @@
-RewriteEngine On
-RewriteCond %{ENV:REDIRECT_STATUS} 200
-RewriteCond %{REQUEST_FILENAME} -l [OR]
-RewriteCond %{REQUEST_FILENAME} -d
-RewriteRule ^.*$ - [NC,L]
-RewriteRule ^.*$ public/index.php [NC,L]
-
-php_value include_path ".:/usr/share/php:/usr/share/php/libzend-framework-php"
