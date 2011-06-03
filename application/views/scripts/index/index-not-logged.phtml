@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+<head>
+  <title>Twico</title>
+  <meta charset="utf-8"/>
+  <meta name="keywords" content="Twico, Tweet, Conference, Events, Twitter" />
+  <meta name="description" content="Usable user interface to tweet events" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <link rel="stylesheet" type="text/css" href="/css/html.css" media="screen" />
+  <link rel="stylesheet" type="text/css" href="/css/layout.css" media="screen" />
+  <?php echo $this->headLink()?>
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
+  <script type="text/javascript">
+        !window.jQuery && document.write("<script type='text/javascript' src='/js/jquery.js'><\/script>");
+  </script>
+  <?php echo $this->headScript()?>
+</head>
+
+<body>
+<!-- #wrapper: centers the content and sets the width -->
+<div id="wrapper">
+  <!-- #content: applies the white, dropshadow background -->
+  <div id="content">
+    <!-- #header: holds site title and subtitle -->
+    <div style="margin-left:40px" id="header">
+      <h1><img width="100px" align="top" src="/img/hashtag.jpg" alt="hashtag"/><span style="font-size:120px" class="twicoLogo">Twico</span></h1>
+      <p style="margin-left:130px">Event tweeting made simple</p>
+      <div style="margin:140px">
+          <a href="/services/twitter/do/redirect"/><img style="border:0px" alt="Sign in with Twitter (Lighter Style)" src="//si0.twimg.com/images/dev/buttons/sign-in-with-twitter-l.png"/></a>
+      </div>    
+    </div>
+    <p class="footer"></p>
+  </div>
+</div>
+</body>
+</html>
+
