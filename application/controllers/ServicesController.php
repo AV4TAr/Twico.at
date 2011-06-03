@@ -64,12 +64,12 @@ class ServicesController extends Zend_Controller_Action
                     $UserTokens = $UTITbl->fetchRow('twitter_id="'.$access_token['user_id'].'"');
                     if($UserTokens){
                         $Singleton->loginUser($UserTokens->users_id);
-                        $this->_redirect('/home');
+                        $this->_redirect('/');
                     } else {
-                        $ASN = new App_Db_AllowedScreenNames();
-                        $row = $ASN->fetchRow("screen_name='".$access_token['screen_name']."'");
+                        //$ASN = new App_Db_AllowedScreenNames();
+                        //$row = $ASN->fetchRow("screen_name='".$access_token['screen_name']."'");
                         /*If the user's screen name is in our allowed screen names table we let the signup continue*/
-                        if($row) {
+                        //if($row) {
                             $connection = App_Service_Twitter::get($access_token['oauth_token'], $access_token['oauth_token_secret']);
                             $parameters = array('id'=>$access_token['screen_name']);
                             $userData = $connection->get('users/show',  $parameters);
@@ -87,10 +87,10 @@ class ServicesController extends Zend_Controller_Action
                             $UserNew->twitter_info = serialize($userData);
                             $UserNew->save();
     
-                            $this->_redirect('/home?welcome');
-                        } else {
-                            $this->_redirect('/?error=nau');
-                        }
+                            $this->_redirect('/');
+                        //} else {
+                          //  $this->_redirect('/?error=nau');
+                        //}
                     }
                 } else {
                     $this->_redirect('/?error');

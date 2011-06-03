@@ -57,12 +57,12 @@ h4 {
 a {
   text-decoration: none;
   color: #5E9040;  
-  border-bottom: 1px solid #B8E78B;
+  border-bottom: 1px solid #437792;
 }
 
 
 a:visited {
-  background-color: #F1FFE3;
+  /*background-color: #F1FFE3;*/
 }
 
 a:hover {
