@@ -21,6 +21,8 @@ $(document).ready(function(){
                     if(data.status=="ok") {
                         $("#loading").html("<i>tweet sent</i>");
                         setTimeout("fadeAndErase($('#loading'))",2000);
+                        $("textarea").val("");
+                        $("textarea").focus();
                     } else {
 
                     }
