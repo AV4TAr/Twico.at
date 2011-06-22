@@ -18,6 +18,7 @@ class MyHashtagsController extends Zend_Controller_Action
         $contextSwitch = $this->_helper->contextSwitch();
         $contextSwitch->addActionContext('list', 'json')
                 ->addActionContext('new', 'json')
+                ->addActionContext('delete', 'json')
                     ->initContext();       
     }
 
@@ -74,9 +75,9 @@ class MyHashtagsController extends Zend_Controller_Action
     
     public function newAction()
     {
-        if($this->getRequest()->isPost() && $this->getRequest()->getParam('new_hast_tag')){
+        if($this->getRequest()->isPost() && $this->getRequest()->getParam('new_hash_tag')){
             try {
-                $new_hash_tag = $this->getRequest()->getParam('new_hast_tag');
+                $new_hash_tag = $this->getRequest()->getParam('new_hash_tag');
                 $new_hash_tag = str_replace("#", "", $new_hash_tag);
                 $UHTTbl = new App_Db_UsersHashTags();
                 $newHastag = $UHTTbl->fetchNew();
@@ -91,6 +92,25 @@ class MyHashtagsController extends Zend_Controller_Action
                     $this->view->error = $e->getMessage();
                 }
             }
+        } else {
+            $this->view->error="An error has ocurred";
+        }
+    }
+    
+    public function deleteAction(){
+         if($this->getRequest()->isPost() && $this->getRequest()->getParam('delete_hash_tag')){
+            try {
+                $delete_hash_tag = $this->getRequest()->getParam('delete_hash_tag');
+                $UHTTbl = new App_Db_UsersHashTags();
+                $Hashtag = $UHTTbl->fetchRow("id=".$delete_hash_tag);
+                if($Hashtag){
+                    $Hashtag->delete();
+                } else {
+                    $this->view->error = "Invalid hash tag...";
+                }
+             } catch (Exception $e){
+                $this->view->error = $e->getMessage();
+             }
         } else {
             $this->view->error="An error has ocurred";
         }

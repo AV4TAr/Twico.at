@@ -1,15 +1,23 @@
 
-<p><input type="text" id="new_htag"/><a href="#" id="add_new_htag">Add</a></p>
-<h1>My hashtags</h1>
-<div id="my_hastags_conteiner"></div>
+<div class="hideit" id="no_hashtags"><h4>You have no hashtags, add a hashtag to start tweeting.</h4></div>
+<div>New hasthag: <input type="text" id="new_htag"/> <a href="#" id="add_new_htag">Add it</a></div>
+<div id="user_hashtags" class="hideit">
+    <h1>My hashtags</h1>
+    <div id="my_hastags_conteiner"></div>
+</div>
 <script type="text/javascript">
     $(document).ready(function(){
         
         function updateMyList(){
             $.getJSON('/my-hashtags/list/?format=json', function(data) {
                 var items = [];
+                if(data.myHashTags.length > 0){
+                    $("#user_hashtags").removeClass("hideit");
+                } else {
+                    $("#no_hashtags").removeClass("hideit");
+                }
                 $.each(data.myHashTags, function(key, val) {
-                    items.push('<li id="' + val.id + '"><a href="/#' + val.hashtag + '">' + val.hashtag + '</a></li>');
+                    items.push('<li id="' + val.id + '"><a href="/#' + val.hashtag + '">' + val.hashtag + '</a> <a href="#" class="del_hashtag" hash_tag_id="' + val.id + '">x</a></li>');
                   });
                 var new_ul =  $('<ul/>', {
                     'class': 'hashtags-list',
@@ -24,15 +32,28 @@
         $('#add_new_htag').click(function(){
             var new_htag = $("#new_htag").val();
             if(new_htag != ""){
-                $.post("/my-hashtags/new/?format=json", {new_hast_tag:new_htag}, function(data){
+                $.post("/my-hashtags/new/?format=json", {new_hash_tag:new_htag}, function(data){
                     if(data.error){
                         alert(data.error)
                     } else {
                         $("#new_htag").val('');
+                        $("#no_hashtags").addClass("hideit");
                         updateMyList();
                     }
                 })
             }
+        });
+        
+        $('.del_hashtag').live('click',function(){
+            var othis = $(this);
+            $.post("/my-hashtags/delete/?format=json", {delete_hash_tag:othis.attr("hash_tag_id")}, function(data){
+                if(data.error){
+                    alert(data.error);
+                } else {
+                    updateMyList();
+                }
+            });
+            return false;
         });
 
        
