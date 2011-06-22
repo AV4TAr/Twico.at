@@ -1,4 +1,9 @@
 $(document).ready(function(){
+    my_hash = location.hash
+    
+    $("#appendText").val(my_hash);
+    limitChars(140, $("#tweetCount"));
+    
     $("textarea").live('keyup', function(e) {
         limitChars(140, $("#tweetCount"));
     });

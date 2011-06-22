@@ -2,7 +2,7 @@
 
 class TweetController extends Zend_Controller_Action
 {
-    public function __init(){
+    public function init(){
         //cambio el contexto si me piden cosas por json
         $contextSwitch = $this->_helper->contextSwitch();
         $contextSwitch->addActionContext('post', 'json')
