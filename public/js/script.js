@@ -19,7 +19,7 @@ $(document).ready(function(){
             try {
                 $.getJSON("/tweet/post", {text:tweetText,format:"json"}, function(data){
                     if(data.status=="ok") {
-                        $("#loading").html("<small>tweet sent</small>");
+                        $("#loading").html("<i>tweet sent</i>");
                         setTimeout("fadeAndErase($('#loading'))",2000);
                     } else {
 
