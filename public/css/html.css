@@ -637,3 +637,7 @@ ul.bigLinks li a:hover span.desc {
   background: none;
   filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='img/bg/content.png',sizingMethod='scale');
 }
+
+.hideit{
+    visibility:hidden;
+}
