@@ -1,23 +1,22 @@
-<h1 style="color:#009AC9;"><input id="eventName" checked type="checkbox">#playavalley</h1>
+<div id="loading" style="text-align:center;position: absolute;margin-top:-22px;margin-left:10px"></div>
+<?php /*<h1 style="color:#009AC9;"><input id="eventName" checked type="checkbox"><script type="text/javascript">document.write(location.hash)</script></h1>*/?>
   <form id="twicoform" action="" method="post">
     <p style="padding:0px">
-      <span style="padding:0px 2px 0px 5px;">@</span>
-      <input type="text" name="to" class="width50" value=""/>
+      <span style="padding:0px 2px 0px 5px;">Appending to this tweet</span>
+      <input type="text" name="to" id="appendText" class="width50" style="width:332px" value=""/>
     </p>
     <p>
-      <textarea style="width:478px;height:70px" name="message" class="width50">#playavalley</textarea>
+      <textarea style="width:478px;height:70px" name="message" class="width50"></textarea>
     </p>
     <p style="padding:0px;padding-bottom:20px">
-      <input style="float:right;margin:0px 5px 20px 0px" type="submit" value="Send" class="button"/><span style="float:right;margin-right:10px;font-weight:bold;line-height:20px">140</span>
+      <input style="float:right;margin:0px 5px 20px 0px" type="submit" value="Send" class="button"/><span id="tweetCount" style="float:right;margin-right:10px;font-weight:bold;line-height:20px">140</span>
     </p>
   </form>
   <p>
         <script src="http://widgets.twimg.com/j/2/widget.js"></script>
         <script>
         //Inicializo
-        my_hash = location.hash; 
-         
-        alert(my_hash);
+        my_hash = location.hash;
         
         var widget = new TWTR.Widget({
           version: 2,
