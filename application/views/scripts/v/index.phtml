@@ -1,0 +1,49 @@
+  <h1 style="color:#009AC9;"><input id="eventName" checked type="checkbox">#playavalley</h1>
+  <form id="twicoform" action="" method="post">
+    <p style="padding:0px">
+      <span style="padding:0px 2px 0px 5px;">@</span>
+      <input type="text" name="to" class="width50" value=""/>
+    </p>
+    <p>
+      <textarea style="width:478px;height:70px" name="message" class="width50">#playavalley </textarea>
+    </p>
+    <p style="padding:0px;padding-bottom:20px">
+      <input style="float:right;margin:0px 5px 20px 0px" type="submit" value="Send" class="button"/><span style="float:right;margin-right:10px;font-weight:bold;line-height:20px">140</span>
+    </p>
+  </form>
+  <p>
+        <script src="http://widgets.twimg.com/j/2/widget.js"></script>
+        <script>
+        var widget = new TWTR.Widget({
+          version: 2,
+          type: 'search',
+          search: '#playavalley',
+          interval: 6000,
+          title: 'What people are saying about',
+          subject: '#playavalley',
+          width: 490,
+          height: 200,
+          theme: {
+                shell: {
+                  background: '#8ec1da',
+                  color: '#ffffff'
+                },
+                tweets: {
+                  background: '#ffffff',
+                  color: '#444444',
+                  links: '#1985b5'
+                }
+          },
+          features: {
+                scrollbar: true,
+                loop: true,
+                live: true,
+                hashtags: true,
+                timestamp: true,
+                avatars: true,
+                toptweets: true,
+                behavior: 'default'
+          }
+        }).render().start();
+        </script>
+  </p>

@@ -195,6 +195,7 @@ class App_Singleton {
 
         $User = $UT->fetchNew(); // Ask for a new reg
         $User->name = $data['name'];
+        $User->twitter_id = $data['twitter_id'];
         try{
             //Will try to save this user
             $User->save();

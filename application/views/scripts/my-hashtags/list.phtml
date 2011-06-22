@@ -1,0 +1,10 @@
+<?php
+if($this->myHashTags){
+    echo '<ul>';
+    foreach($this->myHashTags as $myHashtag){
+        echo '<li id="'.$myHashtag['id'].'" class="hasthag"><a href="/#'.$myHashtag['hashtag'].'">'.$myHashtag['hashtag'].'</a></li>';
+    }
+    echo '</ul>';
+}
+?>
+
