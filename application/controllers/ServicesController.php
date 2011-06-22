@@ -75,7 +75,7 @@ class ServicesController extends Zend_Controller_Action
                             $userData = $connection->get('users/show',  $parameters);
                             $userData = (array) $userData;
     
-                            $User = $Singleton->Signup(array("name"=>$userData["name"]));
+                            $User = $Singleton->Signup(array("name"=>$userData["name"], "twitter_id"=>$access_token['user_id']));
     
                             $TwC = new App_Db_TwitterConnections();
                             $UserNew = $TwC->fetchNew();

@@ -25,9 +25,12 @@
     <div id="header">
       <h1><span class="twicoLogo">Twico</span></h1>
     </div>
-    <?php echo $this->layout ()->content;?>
-    <p class="footer"></p>
+    <div id="page">
+        <?php echo $this->layout ()->content;?>
+      <p class="footer"><a href="/logout">Logout</a> | <a href="/my-hashtags">#My Hastags</a></p>
+    </div>
   </div>
 </div>
+<script type='text/javascript' src="/js/script.js"></script>
 </body>
 </html>

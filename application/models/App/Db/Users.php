@@ -60,4 +60,18 @@ class App_Db_Users extends Zend_Db_Table_Abstract{
         $users = $db->fetchAll ( $sql, null, Zend_Db::FETCH_OBJ );
         return $users;
     }
+    
+    /**
+     * returns users hasthags
+     * @return App_Db_UsersHashTags[]
+     */
+    public function getHashtags(){
+        $UH = new App_Db_UsersHashTags();
+        $hashTags = $UH->fetchAll("users_id=".$this->id);
+        return $hashTags;
+    }
+    
+    public function addHashtag(App_Db_UsersHashTag $hashTag){
+        
+    }
 }
