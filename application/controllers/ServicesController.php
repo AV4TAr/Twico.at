@@ -64,7 +64,7 @@ class ServicesController extends Zend_Controller_Action
                     $UserTokens = $UTITbl->fetchRow('twitter_id="'.$access_token['user_id'].'"');
                     if($UserTokens){
                         $Singleton->loginUser($UserTokens->users_id);
-                        $this->_redirect('/');
+                        $this->_redirect('/my-hashtags');
                     } else {
                         //$ASN = new App_Db_AllowedScreenNames();
                         //$row = $ASN->fetchRow("screen_name='".$access_token['screen_name']."'");
@@ -87,7 +87,7 @@ class ServicesController extends Zend_Controller_Action
                             $UserNew->twitter_info = serialize($userData);
                             $UserNew->save();
     
-                            $this->_redirect('/');
+                            $this->_redirect('/my-hashtags');
                         //} else {
                           //  $this->_redirect('/?error=nau');
                         //}
