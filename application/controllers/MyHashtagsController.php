@@ -44,7 +44,7 @@ class MyHashtagsController extends Zend_Controller_Action
         switch($action){
             case "add":
                 try{
-                    $UHTTbl = new App_Db_UsersHashTags();
+                    $UHTTbl = new App_Db_UsersHashtags();
                     $newHastag = $UHTTbl->fetchNew();
                     $newHastag->tweeter_id = $this->User->tweeter_id;
                     $newHastag->hashtag = $data;
@@ -68,7 +68,7 @@ class MyHashtagsController extends Zend_Controller_Action
      */
     public function listAction()
     {
-        $UHT = new App_Db_UsersHashTags();
+        $UHT = new App_Db_UsersHashtags();
         $myHashTags = $UHT->fetchAll("twitter_id=".$this->User->twitter_id, "hashtag ASC");
         $this->view->myHashTags = $myHashTags->toArray();
     }
@@ -79,7 +79,7 @@ class MyHashtagsController extends Zend_Controller_Action
             try {
                 $new_hash_tag = $this->getRequest()->getParam('new_hash_tag');
                 $new_hash_tag = str_replace("#", "", $new_hash_tag);
-                $UHTTbl = new App_Db_UsersHashTags();
+                $UHTTbl = new App_Db_UsersHashtags();
                 $newHastag = $UHTTbl->fetchNew();
                 $newHastag->twitter_id = $this->User->twitter_id;
                 $newHastag->hashtag = $new_hash_tag;
@@ -101,7 +101,7 @@ class MyHashtagsController extends Zend_Controller_Action
          if($this->getRequest()->isPost() && $this->getRequest()->getParam('delete_hash_tag')){
             try {
                 $delete_hash_tag = $this->getRequest()->getParam('delete_hash_tag');
-                $UHTTbl = new App_Db_UsersHashTags();
+                $UHTTbl = new App_Db_UsersHashtags();
                 $Hashtag = $UHTTbl->fetchRow("id=".$delete_hash_tag);
                 if($Hashtag){
                     $Hashtag->delete();
